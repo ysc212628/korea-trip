@@ -76,6 +76,11 @@ h1,h2{font-family:var(--display);font-weight:600;margin:0;line-height:1.25}
 .count .u{font-size:14px;font-weight:700}
 .count .s{display:block;font-size:12px;color:var(--muted);margin-bottom:4px;font-weight:700}
 
+.wx{display:flex;align-items:center;gap:12px;padding:10px 14px;margin-top:12px;background:var(--ginkgo-soft);border-color:var(--ginkgo)}
+.wx .ic{font-size:30px;line-height:1;flex:none}
+.wx b{display:block;font-size:15px}
+.wx b em{font-style:normal;font-size:20px;color:var(--ink);font-variant-numeric:tabular-nums}
+.wx span{display:block;font-size:13px;color:var(--muted);line-height:1.5}
 .flights{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .flight{padding:10px 12px}
 .flight .top{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:var(--muted)}
@@ -330,6 +335,7 @@ h1,h2{font-family:var(--display);font-weight:600;margin:0;line-height:1.25}
       <div><h1 id="title"></h1><p class="who" id="who"></p></div>
       <div class="count" id="count"></div>
     </div>
+    <div class="card wx" id="wx"></div>
     <p class="sec-label">フライト</p>
     <div class="flights" id="flights"></div>
     <p class="sec-label">日程</p>
@@ -491,12 +497,12 @@ const DATA = {
                 { name:"スクエアド", ko:"스퀘어드", photos:[PHOTOS.sq1, PHOTOS.sq2, PHOTOS.sq3, PHOTOS.sq4], note:"コンクリート打ちっぱなしの、広々とした倉庫のようなカフェ。席がたくさんあるので、歩き疲れたときのひと休みにもぴったりです。マンゴーのかき氷、いちごのケーキ、マシュマロをのせたホットチョコレートなど。", map:"스퀘어드 행궁동" },
               ]},
               { title:"あそぶ・お買い物", emoji:"🛍", items:[
-                { name:"Tシャツづくり「ヒピリピ」", ko:"히피리피", photos:[PHOTOS.hip1], note:"白いTシャツに、好きなワッペンや文字を選んで貼って、世界にひとつだけのTシャツが作れます。旅の記念にぴったり。1枚25,000ウォン。", map:"히피리피 행궁동" },
-                { name:"ステッカーづくり「スティッカーズ」", ko:"스티커즈", photos:[PHOTOS.stk1], note:"その場で撮った写真を、かわいいステッカーシートにしてくれるお店。3人の記念写真をステッカーにして持ち帰れます。", map:"스티커즈 행궁동" },
-                { name:"ギフトセレクトショップ TAP 1号店", ko:"탭 1호점", note:"かわいい雑貨やギフトが並ぶセレクトショップ。見ているだけで楽しいお店です。", map:"탭 1호점 행궁동" },
-                { name:"大王文具（テワンムング）", ko:"대왕문구", note:"昔ながらの韓国の文房具屋さん。ぷにぷにのおもちゃやスライムなど、懐かしくて楽しいものがいっぱい。", map:"대왕문구 행궁동" },
-                { name:"シクダン", ko:"시크당", note:"", map:"시크당 행궁동" },
-                { name:"サソハンオイェ", ko:"사소한오예", note:"", map:"사소한오예 행궁동" },
+                { name:"Tシャツづくり「ヒピリピ」", ko:"히피리피", photos:[PHOTOS.hip1], note:"白いTシャツに、好きなワッペンや文字を選んで貼って、世界にひとつだけのTシャツが作れます。旅の記念にぴったり。1枚25,000ウォン。", map:"히피리피 행궁동", naver:"히피리피 행궁" },
+                { name:"ステッカーづくり「スティッカーズ」", ko:"스티커즈", photos:[PHOTOS.stk1], note:"その場で撮った写真を、かわいいステッカーシートにしてくれるお店。3人の記念写真をステッカーにして持ち帰れます。", map:"스티커즈 행궁동", naver:"스티커즈 행궁점" },
+                { name:"ギフトセレクトショップ TAP 1号店", ko:"탭 1호점", note:"かわいい雑貨やギフトが並ぶセレクトショップ。見ているだけで楽しいお店です。", map:"탭 1호점 행궁동", naver:"탭 1호점 행궁동" },
+                { name:"大王文具（テワンムング）", ko:"대왕문구", note:"昔ながらの韓国の文房具屋さん。ぷにぷにのおもちゃやスライムなど、懐かしくて楽しいものがいっぱい。", map:"대왕문구 행궁동", naver:"대왕문구 행궁동" },
+                { name:"シクダン", ko:"시크당", note:"", map:"시크당 행궁동", naver:"시크당 행궁동" },
+                { name:"サソハンオイェ", ko:"사소한오예", note:"", map:"사소한오예 행궁동", naver:"사소한오예 행궁동" },
               ]},
             ]
           } },
@@ -551,6 +557,8 @@ const DATA = {
     { cat:"コスメ", name:"オリヤンで買いたいもの", ko:"올리브영", emoji:"💄", note:"ここに説明を入れます", where:"", photo:"", map:"", sample:true },
   ],
 
+  weather: { icon:"🌤", title:"10月上旬の天気予報", temp:"10〜23℃", note:"すずしくて過ごしやすい季節。朝晩は冷えるので、羽織るものがあると安心です。" },
+
   hotel: { kr:"동천역 (신분당선) 근처", jp:"東川駅（新盆唐線）の近く ※仮", map:"동천역 신분당선" },
 
   contacts: [
@@ -563,6 +571,10 @@ const DATA = {
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const gmap = q => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+const nmap = q => "https://map.naver.com/p/search/" + encodeURIComponent(q);
+// naver があればNAVER地図、なければGoogleマップ
+const placeUrl = it => it.naver ? nmap(it.naver) : gmap(it.map);
+const placeLabel = (it, long) => it.naver ? (long ? "NAVER地図で見る" : "NAVER地図") : (long ? "Googleマップで見る" : "地図");
 const DAY = 864e5;
 const todayIdx = () => { const k = new Date(Date.now()+9*36e5).toISOString().slice(0,10); return DATA.days.findIndex(d => d.date === k); };
 
@@ -599,6 +611,7 @@ $("#who").textContent = DATA.who;
     : now <= e ? `<span class="s">旅行</span><span class="num">${Math.floor((now-s)/DAY)+1}</span><span class="u">日目</span>`
     : `<span class="s">おかえりなさい</span>`;
 })();
+if (DATA.weather) { const w=DATA.weather; $("#wx").innerHTML = `<span class="ic" aria-hidden="true">${w.icon}</span><div><b>${esc(w.title)}　<em>${esc(w.temp)}</em></b><span>${esc(w.note)}</span></div>`; } else { $("#wx").remove(); }
 $("#flights").innerHTML = DATA.flights.map(f=>`
   <div class="card flight">
     <div class="top"><span>${esc(f.label)} ${esc(f.date)}</span><b>${esc(f.no)}</b></div>
@@ -668,8 +681,8 @@ function renderPage(j){
       <article class="card item">
         ${it.photos&&it.photos.length?carousel(it.photos,"wide"):""}
         <div class="bd"><b>${esc(it.name)}</b><span class="ko">${esc(it.ko)}</span>
-          ${it.note?`<p>${esc(it.note)}</p>`:`<p class="soon">写真やくわしい情報は、Googleマップで見られます</p>`}
-          <div class="ob"><button type="button" data-n="${esc(it.name)}" aria-pressed="${!!favs["item|"+it.name]}">${favs["item|"+it.name]?"♥":"♡"} 気になる</button>${it.map?`<a href="${gmap(it.map)}" target="_blank" rel="noopener">${it.photos&&it.photos.length?"地図":"Googleマップで見る"}</a>`:""}</div>
+          ${it.note?`<p>${esc(it.note)}</p>`:`<p class="soon">写真やくわしい情報は、${it.naver?"NAVER地図":"Googleマップ"}で見られます</p>`}
+          <div class="ob"><button type="button" data-n="${esc(it.name)}" aria-pressed="${!!favs["item|"+it.name]}">${favs["item|"+it.name]?"♥":"♡"} 気になる</button>${(it.map||it.naver)?`<a href="${placeUrl(it)}" target="_blank" rel="noopener">${placeLabel(it, !(it.photos&&it.photos.length))}</a>`:""}</div>
         </div>
       </article>`).join("")}</div>` : `<div class="card soon-card">おすすめを準備中です。お楽しみに。</div>`}
   </section>`).join("");
@@ -720,10 +733,10 @@ function showPageMap(P){
         <span class="ko">${esc(x.sec.title)}・${esc(x.it.ko)}</span>
         ${x.it.note?`<p>${esc(x.it.note)}</p>`:`<p style="color:var(--muted)">写真やくわしい情報は、Googleマップで見られます</p>`}
         <div class="ob"><button type="button" data-n="${esc(x.it.name)}" aria-pressed="${!!favs["item|"+x.it.name]}">${favs["item|"+x.it.name]?"♥":"♡"} 気になる</button>
-          ${x.it.map?`<a href="${gmap(x.it.map)}" target="_blank" rel="noopener">地図アプリ</a>`:""}
+          ${(x.it.map||x.it.naver)?`<a href="${placeUrl(x.it)}" target="_blank" rel="noopener">${x.it.naver?"NAVER地図":"地図アプリ"}</a>`:""}
           ${pins.length>1?`<span class="step"><button type="button" class="mprev" aria-label="前の場所">‹</button><button type="button" class="mnext" aria-label="次の場所">›</button></span>`:""}</div>
       </div></article>` : "";
-  const legend = none.length ? `<p class="mhint">地図の場所を準備中</p><ul class="legend">${none.map(y=>`<li class="card"><span class="nopin"></span><b>${esc(y.it.name)}<span>${esc(y.sec.title)}</span></b>${y.it.map?`<a href="${gmap(y.it.map)}" target="_blank" rel="noopener">開く</a>`:""}</li>`).join("")}</ul>` : "";
+  const legend = none.length ? `<p class="mhint">地図の場所を準備中</p><ul class="legend">${none.map(y=>`<li class="card"><span class="nopin"></span><b>${esc(y.it.name)}<span>${esc(y.sec.title)}</span></b>${(y.it.map||y.it.naver)?`<a href="${placeUrl(y.it)}" target="_blank" rel="noopener">開く</a>`:""}</li>`).join("")}</ul>` : "";
   $("#pgBody").innerHTML = `<div class="gmap">${svg}<span class="ttl">${esc(P.mapTitle||"")}</span><span class="note">イラストマップ（位置はだいたい）</span></div>
     <p class="mhint">ピンをタップすると、下にくわしい紹介が出ます。</p>${card}${legend}`;
   wireCarousels($("#pgBody"));
@@ -835,7 +848,7 @@ $("#pkChips").addEventListener("click", e=>{ const b=e.target.closest("button");
 $("#pkGrid").addEventListener("click", e=>{ const b=e.target.closest("button[data-i]"); if(!b) return; const p=DATA.picks[+b.dataset.i]; openSheet(p, "pick|"+p.name, renderPicks, true); });
 
 /* ---------- 自動アップデート確認 ---------- */
-const BUILD_ID = "20260923061641";
+const BUILD_ID = "20260923063432";
 async function checkUpdate(){
   if (BUILD_ID === "dev") return;
   try {
