@@ -146,7 +146,7 @@ h1,h2{font-family:var(--display);font-weight:600;margin:0;line-height:1.25}
 .pg-title{margin:14px 0 0}
 .pg-title h2{font-size:28px}
 .pg-title small{font-size:13px;color:var(--muted);font-weight:700}
-.pg-intro{margin:6px 0 0;font-size:15px}
+.pg-intro{white-space:pre-line;margin:6px 0 0;font-size:15px}
 .pg-sec{margin-top:22px}
 .pg-sec h3{font-family:var(--display);font-weight:600;font-size:22px;margin:0 0 8px}
 .pg-sec h3 span{font-family:var(--body);font-size:13px;color:var(--muted);font-weight:700;margin-left:6px}
@@ -282,6 +282,8 @@ h1,h2{font-family:var(--display);font-weight:600;margin:0;line-height:1.25}
 .pk .tx small{display:block;font-size:11px;font-weight:700;color:var(--muted)}
 .pk .tx b{display:block;font-size:15px;line-height:1.35}
 .pk .fav{position:absolute;top:6px;right:8px;color:#E0527A;font-size:18px;text-shadow:0 0 4px #fff}
+.pk-tip{grid-column:1/-1;margin-top:6px;padding:12px 14px;background:var(--ginkgo-soft);border-color:var(--ginkgo);font-size:13.5px;line-height:1.6}
+.pk-tip b{display:block;font-size:14px;margin-bottom:2px}
 .pk-sample{margin:10px 2px 0;font-size:12px;color:var(--muted)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pk .im{background:#3A2330}}
 
@@ -301,7 +303,7 @@ h1,h2{font-family:var(--display);font-weight:600;margin:0;line-height:1.25}
 .sheet .tm{margin-top:10px;font-size:14px;font-weight:700;color:var(--sky)}
 .sheet h3{margin:2px 0 0;font-size:22px;line-height:1.35}
 .sheet .ko{margin:0;color:var(--muted);font-size:14px}
-.sheet .note{margin:10px 0 0;font-size:16px}
+.sheet .note{white-space:pre-line;margin:10px 0 0;font-size:16px}
 .sheet .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .opts{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
 .opts li{border:1px solid var(--line);border-radius:14px;padding:10px 12px}
@@ -389,6 +391,21 @@ h1,h2{font-family:var(--display);font-weight:600;margin:0;line-height:1.25}
 <script>
 /* 写真（ファイルに埋め込み済み・どこでも表示されます） */
 const PHOTOS = {
+  dior1:{ src:"img/dior1-a8a678ff.webp" },
+  ss6:{ src:"img/ss6-cb9cc421.webp" },
+  ss7:{ src:"img/ss7-46a9bdde.webp" },
+  sf2:{ src:"img/sf2-85b6789f.webp" },
+  ss2:{ src:"img/ss2-a1e7daeb.webp", credit:"Photo: CartoonChess / CC BY-SA 4.0（Wikimedia Commons）" },
+  ss3:{ src:"img/ss3-0f61cc82.webp", credit:"Photo: CartoonChess / CC BY-SA 4.0（Wikimedia Commons）" },
+  ss4:{ src:"img/ss4-67f63a92.webp", credit:"Photo: CartoonChess / CC BY-SA 4.0（Wikimedia Commons）" },
+  ss5:{ src:"img/ss5-acce1e0f.webp", credit:"Photo: CartoonChess / CC BY-SA 4.0（Wikimedia Commons）" },
+  sf1:{ src:"img/sf1-19ded6cc.webp", credit:"Photo: Enigma7seven / CC BY-SA 3.0（Wikimedia Commons）" },
+  hb1:{ src:"img/hb1-69e2c614.webp", credit:"Photo: Lee Jeong Woo / MCST / CC BY-SA 4.0（Wikimedia Commons）" },
+  hb3:{ src:"img/hb3-d14cdf72.webp", credit:"Photo: Lee Jeong Woo / MCST / CC BY-SA 4.0（Wikimedia Commons）" },
+  hb4:{ src:"img/hb4-90291c53.webp", credit:"Photo: Lee Jeong Woo / MCST / CC BY-SA 4.0（Wikimedia Commons）" },
+  nt2:{ src:"img/nt2-17ec2b0f.webp", credit:"Photo: Aatu Dorochenko / CC BY-SA 4.0（Wikimedia Commons）" },
+  nd1:{ src:"img/nd1-dbedbeb8.webp", credit:"Photo: travel oriented / CC BY-SA 2.0（Wikimedia Commons）" },
+  nd3:{ src:"img/nd3-4a89dc32.webp", credit:"Photo: Republic of Korea / CC BY-SA 2.0（Wikimedia Commons）" },
   hip1:{ src:"img/hip1-8e38af86.webp" },
   stk1:{ src:"img/stk1-3eaa526a.webp" },
   sq1:{ src:"img/sq1-9d3007f3.webp" },
@@ -471,7 +488,7 @@ const DATA = {
         { time:"夜", title:"行宮洞（ヘングンドン）", ko:"행궁동", map:"수원 행궁동",
           page:{
             intro:"世界遺産・水原華城の城壁に囲まれた古い町。昔ながらの路地に、おしゃれなカフェや小さなお店が並んでいます。ここにあるのはぜんぶ提案。気になるものに♡をつけて、その日の気分で選びましょう。",
-            labels:[[37.2894,127.0142,"長安門"],[37.2769,127.0167,"八達門"],[37.2862,127.0088,"華西門"],[37.2882,127.0258,"蒼龍門"],[37.2808,127.0090,"八達山"]],
+            base:"suwon", labels:[[37.2894,127.0142,"長安門"],[37.2769,127.0167,"八達門"],[37.2862,127.0088,"華西門"],[37.2882,127.0258,"蒼龍門"],[37.2808,127.0090,"八達山"]],
             gallery:[ PHOTOS.b2, PHOTOS.n1, PHOTOS.h2, PHOTOS.n3, PHOTOS.b1, PHOTOS.h3, PHOTOS.f1 ],
             sections:[
               { title:"見どころ", emoji:"🏯", items:[
@@ -483,33 +500,33 @@ const DATA = {
                   note:"王様が水原に来たときに泊まった宮殿。金〜日曜の夜はライトアップされます。（10/9は水原華城文化祭の期間中なので、夜の時間が変わるかもしれません）", map:"화성행궁", ll:[37.28220,127.01438] },
               ]},
               { title:"ごはん", emoji:"🍚", items:[
-                { name:"ムムオク", ko:"무무옥", photos:[PHOTOS.mumu1, PHOTOS.mumu2, PHOTOS.mumu3], note:"韓国の麺料理のお店。牛肉がのった温かい麺や冷たいそば、具だくさんののり巻きが人気です。人気店なので、少し並ぶかもしれません。", map:"무무옥 수원", ll:[37.28352,127.01262] },
-                { name:"ホウチプ", ko:"호우집", photos:[PHOTOS.hou1, PHOTOS.hou2, PHOTOS.hou3, PHOTOS.hou4], note:"韓国料理を今風にアレンジしたお店。香ばしく焼いた牛肉をのせた土鍋ごはん、白身魚をのせたのり巻き、ゆで豚とキムチなどが楽しめます。", map:"호우집 행궁동" },
-                { name:"ムウォル（マッコリ酒場）", ko:"무월", photos:[PHOTOS.muwol1, PHOTOS.muwol2, PHOTOS.muwol3, PHOTOS.muwol4, PHOTOS.muwol5, PHOTOS.muwol6, PHOTOS.muwol7], note:"食事というより、マッコリが主役の韓国式の酒場です。松の木と大きな月が飾られた幻想的な店内で、窓の外にはライトアップされた長安門（チャンアンムン）が見えます。ユッケやお鍋、ゆで豚、揚げ物などのおつまみと一緒に、夜景を見ながら一杯どうぞ。", map:"무월 행궁동", ll:[37.28845,127.01372] },
-                { name:"トゥム（釜飯）", ko:"뜸", photos:[PHOTOS.tteum1, PHOTOS.tteum2, PHOTOS.tteum3, PHOTOS.tteum4, PHOTOS.tteum5], note:"炊きたての釜飯（ソッパプ）のお店。香ばしく焼いた牛肉やアサリをのせた釜飯を、よく混ぜていただきます。最後は釜に残ったおこげにお湯を注いで、韓国式のおこげ湯「スンニュン」に。", map:"뜸 행궁동" },
-                { name:"ミガゴン", ko:"미가공 · 수원천로 305", photos:[PHOTOS.miga1, PHOTOS.miga2, PHOTOS.miga3], note:"見た目もかわいい、創作韓国料理のお店。葉野菜で包んだひと口ごはん（サムパプ）、焼き魚をのせたチャーハン、お豆腐ときのこがたっぷりの麺など、やさしい味のメニューが並びます。", map:"미가공 수원천로 305" },
+                { name:"ムムオク", ko:"무무옥", photos:[PHOTOS.mumu1, PHOTOS.mumu2, PHOTOS.mumu3], note:"韓国の麺料理のお店。牛肉がのった温かい麺や冷たいそば、具だくさんののり巻きが人気です。人気店なので、少し並ぶかもしれません。", map:"무무옥 수원", ll:[37.28329,127.01445] },
+                { name:"ホウチプ", ko:"호우집", photos:[PHOTOS.hou1, PHOTOS.hou2, PHOTOS.hou3, PHOTOS.hou4], note:"韓国料理を今風にアレンジしたお店。香ばしく焼いた牛肉をのせた土鍋ごはん、白身魚をのせたのり巻き、ゆで豚とキムチなどが楽しめます。", map:"호우집 행궁동", ll:[37.28732,127.01523] },
+                { name:"ムウォル（マッコリ酒場）", ko:"무월", photos:[PHOTOS.muwol1, PHOTOS.muwol2, PHOTOS.muwol3, PHOTOS.muwol4, PHOTOS.muwol5, PHOTOS.muwol6, PHOTOS.muwol7], note:"食事というより、マッコリが主役の韓国式の酒場です。松の木と大きな月が飾られた幻想的な店内で、窓の外にはライトアップされた長安門（チャンアンムン）が見えます。ユッケやお鍋、ゆで豚、揚げ物などのおつまみと一緒に、夜景を見ながら一杯どうぞ。", map:"무월 행궁동", ll:[37.28806,127.01376] },
+                { name:"トゥム（釜飯）", ko:"뜸", photos:[PHOTOS.tteum1, PHOTOS.tteum2, PHOTOS.tteum3, PHOTOS.tteum4, PHOTOS.tteum5], note:"炊きたての釜飯（ソッパプ）のお店。香ばしく焼いた牛肉やアサリをのせた釜飯を、よく混ぜていただきます。最後は釜に残ったおこげにお湯を注いで、韓国式のおこげ湯「スンニュン」に。", map:"뜸 행궁동", ll:[37.28532,127.0125] },
+                { name:"ミガゴン", ko:"미가공 · 수원천로 305", photos:[PHOTOS.miga1, PHOTOS.miga2, PHOTOS.miga3], note:"見た目もかわいい、創作韓国料理のお店。葉野菜で包んだひと口ごはん（サムパプ）、焼き魚をのせたチャーハン、お豆腐ときのこがたっぷりの麺など、やさしい味のメニューが並びます。", map:"미가공 수원천로 305", ll:[37.28066,127.01807] },
               ]},
               { title:"カフェ", emoji:"☕", items:[
-                { name:"ディーデイハウス（デザートカフェ）", ko:"디데이 하우스", photos:[PHOTOS.dday1, PHOTOS.dday2, PHOTOS.dday3, PHOTOS.dday4], note:"黄色い小さなおうちのような外観がかわいいデザートカフェ。いちごたっぷりのパフェや、マンゴーを花びらのように盛ったかき氷（ピンス）など、見た目も楽しいスイーツがそろっています。", map:"디데이하우스 행궁동" },
-                { name:"ヌクノク", ko:"누크녹", photos:[PHOTOS.nuk1, PHOTOS.nuk2, PHOTOS.nuk3], note:"瓦屋根のレンガの建物がすてきな、静かで落ち着いたカフェ。キャラメルのお店（CARAMELS HAUS）でもあって、表面をパリッと焼いたキャラメリゼのデザートや、土に植えたにんじんのような見た目のパイなど、遊び心のあるスイーツが楽しめます。", map:"누크녹 행궁점" },
-                { name:"ラフターコーヒーバー", ko:"라프터커피바", photos:[PHOTOS.lcb1, PHOTOS.lcb2, PHOTOS.lcb3, PHOTOS.lcb4], note:"窓の目の前に長安門（チャンアンムン）が見えるカフェ。夕暮れどきの景色は特にきれいです。フルーツをのせたパブロバ（メレンゲのお菓子）、あずきのかき氷、ティラミス、マンゴーのかき氷など、デザートも充実しています。", map:"라프터커피바 수원", ll:[37.28918,127.01468] },
-                { name:"オニュヨウォル（温柔與月）", ko:"온유여월", photos:[PHOTOS.onyu1, PHOTOS.onyu2, PHOTOS.onyu3, PHOTOS.onyu4], note:"韓屋（韓国の伝統家屋）のカフェ。看板の漢字「温柔與月」は日本語でも読めますね。窓の外に小さなお庭が見える、明るく落ち着いた店内で、韓国の伝統菓子を使ったデザートやお茶、フルーツサンドなどが楽しめます。", map:"온유여월 행궁동" },
-                { name:"スクエアド", ko:"스퀘어드", photos:[PHOTOS.sq1, PHOTOS.sq2, PHOTOS.sq3, PHOTOS.sq4], note:"コンクリート打ちっぱなしの、広々とした倉庫のようなカフェ。席がたくさんあるので、歩き疲れたときのひと休みにもぴったりです。マンゴーのかき氷、いちごのケーキ、マシュマロをのせたホットチョコレートなど。", map:"스퀘어드 행궁동" },
+                { name:"ディーデイハウス（デザートカフェ）", ko:"디데이 하우스", photos:[PHOTOS.dday1, PHOTOS.dday2, PHOTOS.dday3, PHOTOS.dday4], note:"黄色い小さなおうちのような外観がかわいいデザートカフェ。いちごたっぷりのパフェや、マンゴーを花びらのように盛ったかき氷（ピンス）など、見た目も楽しいスイーツがそろっています。", map:"디데이하우스 행궁동", ll:[37.28616,127.01282] },
+                { name:"ヌクノク", ko:"누크녹", photos:[PHOTOS.nuk1, PHOTOS.nuk2, PHOTOS.nuk3], note:"瓦屋根のレンガの建物がすてきな、静かで落ち着いたカフェ。キャラメルのお店（CARAMELS HAUS）でもあって、表面をパリッと焼いたキャラメリゼのデザートや、土に植えたにんじんのような見た目のパイなど、遊び心のあるスイーツが楽しめます。", map:"누크녹 행궁점", ll:[37.28595,127.01137] },
+                { name:"ラフターコーヒーバー", ko:"라프터커피바", photos:[PHOTOS.lcb1, PHOTOS.lcb2, PHOTOS.lcb3, PHOTOS.lcb4], note:"窓の目の前に長安門（チャンアンムン）が見えるカフェ。夕暮れどきの景色は特にきれいです。フルーツをのせたパブロバ（メレンゲのお菓子）、あずきのかき氷、ティラミス、マンゴーのかき氷など、デザートも充実しています。", map:"라프터커피바 수원", ll:[37.28885,127.01489] },
+                { name:"オニュヨウォル（温柔與月）", ko:"온유여월", photos:[PHOTOS.onyu1, PHOTOS.onyu2, PHOTOS.onyu3, PHOTOS.onyu4], note:"韓屋（韓国の伝統家屋）のカフェ。看板の漢字「温柔與月」は日本語でも読めますね。窓の外に小さなお庭が見える、明るく落ち着いた店内で、韓国の伝統菓子を使ったデザートやお茶、フルーツサンドなどが楽しめます。", map:"온유여월 행궁동", ll:[37.28697,127.01349] },
+                { name:"スクエアド", ko:"스퀘어드", photos:[PHOTOS.sq1, PHOTOS.sq2, PHOTOS.sq3, PHOTOS.sq4], note:"コンクリート打ちっぱなしの、広々とした倉庫のようなカフェ。席がたくさんあるので、歩き疲れたときのひと休みにもぴったりです。マンゴーのかき氷、いちごのケーキ、マシュマロをのせたホットチョコレートなど。", map:"스퀘어드 행궁동", ll:[37.28371,127.01485] },
               ]},
               { title:"あそぶ・お買い物", emoji:"🛍", items:[
-                { name:"Tシャツづくり「ヒピリピ」", ko:"히피리피", photos:[PHOTOS.hip1], note:"白いTシャツに、好きなワッペンや文字を選んで貼って、世界にひとつだけのTシャツが作れます。旅の記念にぴったり。1枚25,000ウォン。", map:"히피리피 행궁동", naver:"히피리피 행궁" },
-                { name:"ステッカーづくり「スティッカーズ」", ko:"스티커즈", photos:[PHOTOS.stk1], note:"その場で撮った写真を、かわいいステッカーシートにしてくれるお店。3人の記念写真をステッカーにして持ち帰れます。", map:"스티커즈 행궁동", naver:"스티커즈 행궁점" },
-                { name:"ギフトセレクトショップ TAP 1号店", ko:"탭 1호점", note:"かわいい雑貨やギフトが並ぶセレクトショップ。見ているだけで楽しいお店です。", map:"탭 1호점 행궁동", naver:"탭 1호점 행궁동" },
-                { name:"大王文具（テワンムング）", ko:"대왕문구", note:"昔ながらの韓国の文房具屋さん。ぷにぷにのおもちゃやスライムなど、懐かしくて楽しいものがいっぱい。", map:"대왕문구 행궁동", naver:"대왕문구 행궁동" },
-                { name:"シクダン", ko:"시크당", note:"", map:"시크당 행궁동", naver:"시크당 행궁동" },
-                { name:"サソハンオイェ", ko:"사소한오예", note:"", map:"사소한오예 행궁동", naver:"사소한오예 행궁동" },
+                { name:"Tシャツづくり「ヒピリピ」", ko:"히피리피", photos:[PHOTOS.hip1], note:"白いTシャツに、好きなワッペンや文字を選んで貼って、世界にひとつだけのTシャツが作れます。旅の記念にぴったり。1枚25,000ウォン。", map:"히피리피 행궁동", naver:"히피리피 행궁", ll:[37.2857,127.01376] },
+                { name:"ステッカーづくり「スティッカーズ」", ko:"스티커즈", photos:[PHOTOS.stk1], note:"その場で撮った写真を、かわいいステッカーシートにしてくれるお店。3人の記念写真をステッカーにして持ち帰れます。", map:"스티커즈 행궁동", naver:"스티커즈 행궁점", ll:[37.2853,127.01408] },
+                { name:"ギフトセレクトショップ TAP 1号店", ko:"탭 1호점", note:"かわいい雑貨やギフトが並ぶセレクトショップ。見ているだけで楽しいお店です。", map:"탭 1호점 행궁동", naver:"탭 1호점 행궁동", ll:[37.28517,127.01274] },
+                { name:"大王文具（テワンムング）", ko:"대왕문구", note:"昔ながらの韓国の文房具屋さん。ぷにぷにのおもちゃやスライムなど、懐かしくて楽しいものがいっぱい。", map:"대왕문구 행궁동", naver:"대왕문구 행궁동", ll:[37.28487,127.01614] },
+                { name:"シクダン", ko:"시크당", note:"", map:"시크당 행궁동", naver:"시크당 행궁동", ll:[37.28471,127.01193] },
+                { name:"サソハンオイェ", ko:"사소한오예", note:"", map:"사소한오예 행궁동", naver:"사소한오예 행궁동", ll:[37.28495,127.01182] },
               ]},
             ]
           } },
         { time:"", title:"水原", ko:"수원역 · 스타필드 수원", optional:true, map:"수원역",
           page:{
             intro:"元気が残っていたら、もう少しだけ。行きたいものがあれば寄りましょう。",
-            labels:[[37.2678,127.0002,"水原駅"],[37.2830,127.0160,"行宮洞"]],
+            base:"suwon", labels:[[37.2678,127.0002,"水原駅"],[37.2830,127.0160,"行宮洞"]],
             gallery:[ PHOTOS.lib ],
             sections:[
               { title:"水原駅まわり", emoji:"🚉", items:[
@@ -523,11 +540,90 @@ const DATA = {
           } },
         { time:"", title:"宿へ", hotel:true },
       ]},
-    { date:"2026-10-10", d:"10", w:"土", tab:"2日目", title:"鍾路（チョンノ）", note:"", spots:[] },
-    { date:"2026-10-11", d:"11", w:"日", tab:"3日目", title:"聖水（ソンス）", note:"", spots:[] },
-    { date:"2026-10-12", d:"12", w:"月", tab:"最終日", title:"また来てね", note:"",
+    { date:"2026-10-10", d:"10", w:"土", tab:"2日目", title:"香水づくりとお買い物、夜はソウルの夜景",
+      note:"朝9時ごろ宿を出発。ソウルの森でブランチ、香水づくり体験。お買い物をしながら焼肉屋さんの順番を待って、遅めのお昼ごはん。お好みでヘッドスパ。夜は解放村か漢江バスで、ソウルの夜景を楽しみます！",
       spots:[
-        { time:"09:35", title:"仁川空港から出発", ko:"인천국제공항", note:"", photo:"", map:"인천국제공항 제1여객터미널" },
+        { time:"10:00", title:"ソウルの森でブランチ", ko:"서울숲",
+          page:{
+            intro:"香水工房のすぐ近くで、ゆっくりブランチ。お昼は焼肉なので、軽めがおすすめです。どちらにするかは、その日の気分で選びましょう。",
+            labels:[[37.54752,127.04304,"香水工房"],[37.54324,127.05763,"クプダン"],[37.54457,127.05600,"聖水駅"],[37.5436,127.0400,"ソウルの森"]], parks:[[37.5436,127.0385,.0035,.0040]],
+            gallery:[ PHOTOS.sf2, PHOTOS.sf1 ],
+            sections:[
+              { title:"ブランチの候補", items:[
+                { name:"ファミリー手打ちカルグクス", ko:"훼미리손칼국수", note:"手打ちの麺がおいしい、韓国式のうどん（カルグクス）のお店。", naver:"훼미리손칼국수보쌈", ll:[37.54956,127.04468] },
+                { name:"ホグァダン（パイのお店）", ko:"호과당 ", note:"香水工房のすぐ近くにある、サクサクのパイのお店。コーヒーと一緒に、軽めのブランチにぴったりです。", naver:"호과당 성수", ll:[37.54641,127.04364] },
+              ]},
+            ]
+          } },
+        { time:"11:00", title:"香水づくり体験「アルブ」", ko:"향수공방 아르브", note:"好きな香りを選んで、自分だけの香水をつくる体験。11時から4人で予約してあります（11時半ごろまで）。旅の思い出の香りを持って帰りましょう。", naver:"향수공방 아르브 성수" },
+        { time:"11:30", title:"聖水でお買い物", ko:"성수동",
+          page:{
+            intro:"古い工場や倉庫をリノベーションしたお店が並ぶ、いまソウルでいちばん元気な町。香水づくりのあとは、聖水駅のほうへ歩きながらお買い物。焼肉屋さんの順番が来るまで、ゆっくり楽しみましょう。気になるお店に♡をつけてね。",
+            labels:[[37.54457,127.05600,"聖水駅"],[37.5436,127.0400,"ソウルの森"],[37.54752,127.04304,"香水工房"],[37.54324,127.05763,"クプダン"]], parks:[[37.5436,127.0385,.0035,.0040]],
+            gallery:[ PHOTOS.ss6, PHOTOS.ss7, PHOTOS.dior1, PHOTOS.ss2, PHOTOS.ss3, PHOTOS.ss4, PHOTOS.ss5 ],
+            sections:[
+              { title:"お買い物", items:[
+                { name:"オリーブヤングN 聖水", ko:"올리브영N 성수", note:"5階建ての大きなオリーブヤング。コスメはもちろん、韓国のお菓子や雑貨もそろっています。", map:"올리브영N 성수", ll:[37.54417,127.05443] },
+                { name:"オリーブヤング ビューティーマンション聖水店", ko:"올리브영 뷰티 맨션 성수점", note:"2026年6月にできた新しいお店。聖水駅2番出口のすぐ前です。", map:"올리브영 뷰티 맨션 성수점", ll:[37.54454,127.05737] },
+                { name:"タンバリンズ（TAMBURINS）", ko:"탬버린즈 성수", note:"ハンドクリームや香水で人気の韓国ブランド。アート作品のような店内も見どころです。", map:"탬버린즈 성수", ll:[37.54378,127.05257] },
+                { name:"ヘトラス（HETRAS）", ko:"헤트라스", note:"香りのいいヘアケアで人気の韓国ブランドのお店。", naver:"헤트라스 성수", ll:[37.54191,127.05675] },
+                { name:"モナミストア", ko:"모나미스토어 성수", note:"韓国のみんなが使ってきたボールペン「モナミ」のお店。色やパーツを選んで、自分だけのペンをつくることもできます。おみやげにもぴったり。", naver:"모나미스토어 성수", ll:[37.54444,127.05545] },
+                { name:"チャッカングドゥ（靴屋さん）", ko:"착한구두", note:"履き心地のいい靴が、手ごろな値段でそろう靴屋さん。聖水は昔から靴づくりで知られる町です。", naver:"착한구두 성수", ll:[37.5401,127.0556] },
+                { name:"ニューニュー（アクセサリー）", ko:"뉴뉴", note:"ピアスやヘアアクセサリーが、びっくりするほどお手ごろな値段でずらりと並ぶお店。見ているだけで楽しい！", naver:"뉴뉴 성수", ll:[37.54157,127.05928] },
+                { name:"韓国のお酒のボトルショップ「ウリスルダンダン」", ko:"우리술당당", note:"韓国各地でつくられたお酒を、味見したり買ったりできるお店。地下にあって、ちょっと隠れ家みたい。おみやげのお酒探しにどうぞ。（月曜休み）", naver:"우리술당당 성수", ll:[37.54647,127.04404] },
+              ]},
+              { title:"おやつ", items:[
+                { name:"ホグァダン（パイのお店）", ko:"호과당", note:"サクサクのパイのお店。お買い物の合間のおやつや、宿に持ち帰って食べるのにもぴったりです。", naver:"호과당 성수", ll:[37.54641,127.04364] },
+              ]},
+              { title:"見るだけでも楽しい", items:[
+                { name:"ディオール聖水", ko:"디올 성수", photos:[PHOTOS.dior1], note:"パリの本店をイメージした、お城のような外観のディオール。外から眺めるだけでもすてきな写真スポットです。", map:"디올 성수", ll:[37.54386,127.05218] },
+                { name:"ソウルの森（時間があれば）", ko:"서울숲", photos:[PHOTOS.sf2, PHOTOS.sf1], note:"聖水のとなりにある大きな公園。10月は木々が色づきはじめます。歩き疲れたら、ベンチでひと休み。", map:"서울숲", ll:[37.54359,127.04473] },
+              ]},
+            ]
+          } },
+        { time:"14:30", title:"クプダンでお昼ごはん", ko:"꿉당", note:"炭火で焼いて食べる、韓国式の焼肉屋さん。人気店なので、12時半ごろに順番待ちを登録しておきます。順番が来るのは14時〜15時ごろの予定。それまではお買い物を楽しみましょう。", map:"꿉당 성수", naver:"꿉당 성수" },
+        { time:"16:00", title:"ヘッドスパでひと休み", ko:"헤드스파", optional:true, note:"おなかいっぱいになったら、韓国式のヘッドスパへ。頭皮と髪をていねいにケアしてもらいながら、歩き疲れた体もひと休み。" },
+        { time:"18:30", title:"夜景：解放村 or 漢江バス", ko:"해방촌 / 잠실 한강버스",
+          page:{
+            intro:"夜は、その日の気分でどちらかへ。\nA：南山タワーのふもと、坂の上の町・解放村。ライトアップされた南山タワーとソウルの夜景を見ながら、焼酎で乾杯。\nB：蚕室から漢江バスに乗って、船の上から夜の漢江を楽しむ。",
+            labels:[[37.55126,126.98829,"南山タワー"],[37.53505,126.98533,"緑莎坪駅"]], parks:[[37.5520,126.9890,.0040,.0050]],
+            gallery:[ PHOTOS.hb3, PHOTOS.hb4, PHOTOS.nt2, PHOTOS.hb1 ],
+            sections:[
+              { title:"A：解放村で夜景と一杯", items:[] },
+              { title:"A：解放村を歩く", items:[
+                { name:"新興市場（シヌンシジャン）", ko:"신흥시장", photos:[PHOTOS.hb3, PHOTOS.hb1], note:"古い市場をリノベーションした場所。屋根の下に、カフェや小さなお店が並んでいます。", map:"해방촌 신흥시장", ll:[37.54514,126.98497] },
+                { name:"南山タワーが見える坂道", ko:"해방촌 오거리", photos:[PHOTOS.hb4, PHOTOS.nt2], note:"坂の上から見上げる南山タワーは、解放村ならではの景色。暗くなるとタワーに明かりがともります。坂が急なので、上まではタクシーで行きます。", map:"해방촌 오거리", ll:[37.54353,126.98559] },
+                { name:"南山タワー（元気があれば）", ko:"남산서울타워", note:"解放村のすぐ上。バスで山の上まで行けて、ソウルの夜景がぐるっと見渡せます。", map:"남산서울타워", ll:[37.55126,126.98829] },
+              ]},
+              { title:"B：漢江バス", items:[
+                { name:"漢江バスで夜の川へ", ko:"잠실 한강버스", note:"漢江を走る水上バス。蚕室（チャムシル）から乗って、船の上から夜の漢江とソウルの街の灯りを楽しめます。1時間に1本ほどなので、時間を確認してから向かいます。", map:"잠실 한강버스 선착장" },
+              ]},
+            ]
+          } },
+        { time:"", title:"宿へ", hotel:true },
+      ]},
+    { date:"2026-10-11", d:"11", w:"日", tab:"3日目", title:"明洞でアカスリ、美術館へ",
+      note:"最終日は明洞でゆっくり。夜は空港へ向かいます。",
+      spots:[
+        { time:"午前", title:"明洞（ミョンドン）", ko:"명동",
+          page:{
+            intro:"ソウルでいちばんにぎやかな繁華街。コスメのお店や屋台が並び、日本語が通じるお店もたくさんあります。最終日はここで、韓国ならではのあかすりでさっぱりしましょう。",
+            gallery:[],
+            sections:[
+              { title:"あかすり（1人用のお店）", items:[
+                { name:"1人用あかすり店", ko:"1인 세신샵", note:"最近は、個室でひとりずつ受けられる「1人用のあかすり店」が人気です。自分だけのお風呂で体を温めたあと、あかすりのプロがていねいに洗ってくれます。所要時間はおよそ75〜85分。シャンプーなども全部そろっているので、手ぶらでOK。予約して行きます。" },
+              ]},
+              { title:"お買い物", items:[] },
+              { title:"ごはん", items:[] },
+            ]
+          } },
+        { time:"午後", title:"美術館", ko:"미술관", note:"どこへ行くかは準備中です。お楽しみに。" },
+        { time:"夜", title:"仁川空港へ", ko:"인천국제공항", note:"ソウル駅から空港鉄道で空港へ。今夜は空港の近くに泊まって、次の日の朝はゆっくり出発します。", map:"인천국제공항 제1여객터미널" },
+      ]},
+    { date:"2026-10-12", d:"12", w:"月", tab:"最終日", title:"また来てね",
+      note:"空港の近くから、ゆっくり出発。",
+      spots:[
+        { time:"09:35", title:"仁川空港から出発", ko:"인천국제공항", note:"OZ152便で仙台へ。気をつけて帰ってね。", map:"인천국제공항 제1여객터미널" },
       ]},
   ],
 
@@ -542,8 +638,8 @@ const DATA = {
       { name:"オリーブヤング 仁寺洞店", ko:"올리브영 안녕인사동", addr:"서울 종로구 인사동길 49 안녕인사동", tags:[] },
     ]},
     { area:"聖水", q:"성수역 올리브영", stores:[
-      { name:"オリーブヤングN 聖水", ko:"올리브영N 성수", addr:"서울 성동구 연무장7길 13 팩토리얼 성수", tags:["5階建ての旗艦店","10:00–22:00"] },
-      { name:"ビューティーマンション聖水店", ko:"올리브영 뷰티 맨션 성수점", addr:"성수역 2번 출구 앞", tags:["2026年6月オープン"] },
+      { name:"オリーブヤングN 聖水", ko:"올리브영N 성수", addr:"서울 성동구 연무장7길 13 팩토리얼 성수", tags:["5階建ての旗艦店","10:00–22:00"], ll:[37.54417,127.05443] },
+      { name:"ビューティーマンション聖水店", ko:"올리브영 뷰티 맨션 성수점", addr:"성수역 2번 출구 앞", tags:["2026年6月オープン"], ll:[37.54454,127.05737] },
       { name:"オリーブヤング 聖水駅店", ko:"올리브영 성수역점", addr:"서울 성동구 아차산로 91", tags:["その場で免税","1番出口"] },
     ]},
     { area:"宿の近く", q:"동천역 올리브영", stores:[] },
@@ -555,6 +651,14 @@ const DATA = {
     { cat:"雑貨・あそび", name:"キーキャップ", ko:"키캡", emoji:"⌨️", note:"ここに説明を入れます", where:"", photo:"", map:"", sample:true },
     { cat:"コンビニ", name:"コンビニのはやりもの", ko:"편의점", emoji:"🏪", note:"ここに説明を入れます", where:"", photo:"", map:"", sample:true },
     { cat:"コスメ", name:"オリヤンで買いたいもの", ko:"올리브영", emoji:"💄", note:"ここに説明を入れます", where:"", photo:"", map:"", sample:true },
+    { cat:"お酒（コンビニ）", name:"ババンババム", ko:"바밤바밤", emoji:"🌰", note:"栗のアイスクリーム「ババンバ」の味をお酒にした、甘いマッコリ。モンブランのようなやさしい味で、お酒に弱い人でも飲みやすいと人気です。", where:"コンビニ" },
+    { cat:"お酒（コンビニ）", name:"トクソヌン アルバム トンドン", ko:"톡쏘는 알밤 동동", emoji:"🥫", note:"缶に入ったマッコリ。国産の栗の甘さに、シュワッとした炭酸。アルコール6%と軽めで、ホテルでの一杯にちょうどいいサイズです。", where:"コンビニ" },
+    { cat:"お酒（コンビニ）", name:"ポクプンジャ酒", ko:"복분자주", emoji:"🍇", note:"韓国の黒いちご「ポクプンジャ」でつくった、甘酸っぱい赤いお酒。デザートワインのような味わいです。", where:"コンビニ・スーパー" },
+    { cat:"お酒（ボトルショップ）", name:"ポクスンドガ ソンマッコリ", ko:"복순도가 손막걸리", emoji:"🍾", note:"「マッコリのシャンパン」と呼ばれる、シュワシュワのマッコリ。あんず色できめが細かく、すっきり飲めます。瓶もおしゃれで、おみやげにも。", where:"ボトルショップ" },
+    { cat:"お酒（ボトルショップ）", name:"イファジュ", ko:"이화주", emoji:"🥄", note:"スプーンですくって食べる、ヨーグルトのようなめずらしいお酒。梨の花が咲くころに仕込むことから、この名前がつきました。", where:"ボトルショップ" },
+    { cat:"お酒（ボトルショップ）", name:"タムンマッコリ", ko:"담은막걸리", emoji:"🥛", note:"牛乳よりもなめらかと言われる、やさしい甘さのマッコリ。チーズや果物にも合います。", where:"ボトルショップ" },
+    { cat:"お酒（ボトルショップ）", name:"チピョン タクチュ", ko:"지평탁주", emoji:"🍶", note:"老舗の酒蔵がつくる、アルコール12%の少し贅沢なマッコリ。お米の味がしっかり感じられます。", where:"ボトルショップ" },
+    { cat:"お酒（ボトルショップ）", name:"チョンミョンジュ", ko:"청명주", emoji:"🍑", note:"フルーツのような甘い香りに、ヨーグルトのような酸味。冷やして、グラスでどうぞ。", where:"ボトルショップ" },
   ],
 
   weather: { icon:"🌤", title:"10月上旬の天気予報", temp:"10〜23℃", note:"すずしくて過ごしやすい季節。朝晩は冷えるので、羽織るものがあると安心です。" },
@@ -649,7 +753,7 @@ function renderDay(i){
         </button></li>`).join("")}</ol>`
     : `<div class="card empty-day"><b>🍂</b>この日の予定はもうすぐ届きます。<br>お楽しみに。</div>`;
   $("#s-day").setAttribute("aria-label", d.tab);
-  const hint = d.spots.some(x=>!x.hotel && x.note) ? `<p class="hint">どれも提案です。気になるものに<b>♡</b>をつけてね。</p>` : "";
+  const hint = d.spots.some(x=>!x.hotel && (x.note || x.page)) ? `<p class="hint">どれも提案です。気になるものに<b>♡</b>をつけてね。</p>` : "";
   $("#s-day").innerHTML = `<div class="dhead"><small>${esc(d.tab)}　${m}月${dd}日（${d.w}）</small><h2>${esc(d.title)}</h2>${d.note?`<p>${esc(d.note)}</p>`:""}</div>${list}${hint}`;
 }
 $("#s-day").addEventListener("click", e=>{ const b=e.target.closest("button[data-j]"); if(b){ const sp=DATA.days[curDay].spots[+b.dataset.j]; if(sp.page) renderPage(+b.dataset.j); else openSheet(sp, fk(curDay,sp), ()=>renderDay(curDay)); return; }
@@ -674,6 +778,8 @@ function wireCarousels(root){
 }
 let pageView="list";
 function renderPage(j){
+  const hasPins=DATA.days[curDay].spots[j].page.sections.some(x=>x.items.some(i=>i.ll));
+  if(!hasPins) pageView="list";
   if($("#s-day").dataset.page!=String(j)) mapSel=0;
   const d=DATA.days[curDay], s=d.spots[j], P=s.page;
   const secs = P.sections.map((sec,si)=>`<section class="pg-sec"><h3>${esc(sec.title)}${sec.items.length?`<span>${sec.items.length}</span>`:""}</h3>
@@ -686,7 +792,7 @@ function renderPage(j){
         </div>
       </article>`).join("")}</div>` : `<div class="card soon-card">おすすめを準備中です。お楽しみに。</div>`}
   </section>`).join("");
-  const seg = `<div class="pg-seg" id="pgSeg"><button type="button" data-v="list" aria-pressed="${pageView==="list"}">📖 リストで見る</button><button type="button" data-v="map" aria-pressed="${pageView==="map"}">📍 地図で見る</button></div>`;
+  const seg = !hasPins ? "" : `<div class="pg-seg" id="pgSeg"><button type="button" data-v="list" aria-pressed="${pageView==="list"}">📖 リストで見る</button><button type="button" data-v="map" aria-pressed="${pageView==="map"}">📍 地図で見る</button></div>`;
   $("#s-day").innerHTML = `<button type="button" class="back">‹ ${esc(d.tab)}にもどる</button>
     ${pageView==="list"
       ? `${seg}<div style="height:12px"></div>${carousel(P.gallery)}<div class="pg-title"><small>${esc(s.ko)}</small><h2>${esc(s.title)}</h2></div><p class="pg-intro">${esc(P.intro)}</p><div id="pgBody">${secs}</div>`
@@ -695,7 +801,7 @@ function renderPage(j){
   $("#s-day").dataset.page=j;
   wireCarousels($("#s-day"));
   if(pageView==="map") showPageMap(P);
-  $("#pgSeg").addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b||b.dataset.v===pageView) return; pageView=b.dataset.v; const st=$("#s-day").scrollTop; renderPage(j); $("#s-day").scrollTop=st; });
+  if($("#pgSeg")) $("#pgSeg").addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b||b.dataset.v===pageView) return; pageView=b.dataset.v; const st=$("#s-day").scrollTop; renderPage(j); $("#s-day").scrollTop=st; });
 }
 const WALL=[[37.28883,127.01422],[37.28753,127.01760],[37.28772,127.01876],[37.28737,127.01950],[37.28839,127.02295],[37.28928,127.02440],[37.28775,127.02510],[37.28141,127.02116],[37.27839,127.01958],[37.27834,127.01877],[37.27758,127.01676],[37.27711,127.01181],[37.28075,127.01023],[37.28430,127.00834],[37.28561,127.00967],[37.28721,127.01227]];
 const STREAM=[[37.29598, 127.02555], [37.29499, 127.02451], [37.29433, 127.02389], [37.29398, 127.02359], [37.29308, 127.02297], [37.29254, 127.02255], [37.29186, 127.02204], [37.29136, 127.02141], [37.29077, 127.02059], [37.29036, 127.02004], [37.2902, 127.0198], [37.28974, 127.01922], [37.28928, 127.01871], [37.28861, 127.01797], [37.28829, 127.01774], [37.28795, 127.01767], [37.28765, 127.01764], [37.28747, 127.01763], [37.28734, 127.01765], [37.28678, 127.01766], [37.28618, 127.01772], [37.28578, 127.01776], [37.28549, 127.01778], [37.28498, 127.01785], [37.2847, 127.01789], [37.28414, 127.01795], [37.28355, 127.01801], [37.28282, 127.0181], [37.28252, 127.01813], [37.28208, 127.01819], [37.28144, 127.01831], [37.28099, 127.01839], [37.28063, 127.01845], [37.27975, 127.01857], [37.27853, 127.01872], [37.2783, 127.01875]];
@@ -705,15 +811,22 @@ function showPageMap(P){
   const pins=all.filter(x=>x.it.ll).map((x,k)=>({...x,no:k+1})), none=all.filter(x=>!x.it.ll);
   if(mapSel>=pins.length) mapSel=0;
   // bbox: pins + wall + labels
-  const P0=[...pins.map(x=>x.it.ll), ...WALL, ...(P.labels||[]).map(l=>[l[0],l[1]])];
+  const isSuwon=P.base==="suwon";
+  const P0=[...pins.map(x=>x.it.ll), ...(isSuwon?WALL:[]), ...(P.labels||[]).map(l=>[l[0],l[1]])];
   let la0=Math.min(...P0.map(q=>q[0])), la1=Math.max(...P0.map(q=>q[0])), lo0=Math.min(...P0.map(q=>q[1])), lo1=Math.max(...P0.map(q=>q[1]));
   const padLa=(la1-la0)*.1+.0008, padLo=(lo1-lo0)*.1+.0008; la0-=padLa; la1+=padLa; lo0-=padLo; lo1+=padLo;
+  { // 縦横比を 0.75〜1.1 におさめる
+    const kx0=Math.cos(37.4*Math.PI/180); let w=(lo1-lo0)*kx0, h=la1-la0;
+    const minSide=.006; if(w<minSide){ const d=(minSide-w)/2/kx0; lo0-=d; lo1+=d; w=minSide; } if(h<minSide){ const d=(minSide-h)/2; la0-=d; la1+=d; h=minSide; }
+    if(h/w<.75){ const d=(.75*w-h)/2; la0-=d; la1+=d; } else if(h/w>1.1){ const d=(h/1.1-w)/2/kx0; lo0-=d; lo1+=d; }
+  }
   const kx=Math.cos(37.28*Math.PI/180), W=1000, H=Math.round(W*(la1-la0)/((lo1-lo0)*kx));
   const X=lo=>((lo-lo0)/(lo1-lo0)*W).toFixed(1), Y=la=>((la1-la)/(la1-la0)*H).toFixed(1);
   const path=pts=>pts.map((q,i)=>(i?"L":"M")+X(q[1])+" "+Y(q[0])).join(" ");
-  const R=40*Math.max(1,H/1000);
+  const R=pins.length>10?28:40;
   const hill=`<ellipse cx="${X(127.0097)}" cy="${Y(37.2806)}" rx="${(0.0028/(lo1-lo0)*W).toFixed(0)}" ry="${(0.0026/(la1-la0)*H).toFixed(0)}" fill="#DCE8C8"/>`;
-  const labels=(P.labels||[]).map(l=>`<text x="${X(l[1])}" y="${Y(l[0])}" text-anchor="middle" font-size="${26*Math.max(1,H/1000)}" fill="#7A6A4C" font-weight="700" style="paint-order:stroke" stroke="#F4EFE3" stroke-width="6">${esc(l[2])}</text>`).join("");
+  const parks=(P.parks||[]).map(k=>`<ellipse cx="${X(k[1])}" cy="${Y(k[0])}" rx="${(k[3]/(lo1-lo0)*W).toFixed(0)}" ry="${(k[2]/(la1-la0)*H).toFixed(0)}" fill="#DCE8C8"/>`).join("");
+  const labels=(P.labels||[]).map(l=>`<text x="${X(l[1])}" y="${Y(l[0])}" text-anchor="middle" font-size="${26*1}" fill="#7A6A4C" font-weight="700" style="paint-order:stroke" stroke="#F4EFE3" stroke-width="6">${esc(l[2])}</text>`).join("");
   const pinSvg=pins.map((x,i)=>{ const on=i===mapSel, r=on?R*1.35:R, c=SEC_COLORS[x.si%5];
     return `<g class="pinb" data-i="${i}" transform="translate(${X(x.it.ll[1])} ${Y(x.it.ll[0])})">
       <circle class="hit" r="${R*2}"/>${on?`<circle r="${r+10}" fill="${c}" opacity=".25"/>`:""}
@@ -722,16 +835,16 @@ function showPageMap(P){
   // selected pin drawn last (on top)
   const order=pinSvg.map((g,i)=>i).sort((a,b)=>(a===mapSel)-(b===mapSel)).map(i=>pinSvg[i]).join("");
   const svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc("地図")}">
-      <rect width="${W}" height="${H}" fill="#F4EFE3"/>${hill}
-      <path d="${path(STREAM)}" fill="none" stroke="#9CC7E4" stroke-width="${14*Math.max(1,H/1000)}" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="${path(WALL)} Z" fill="rgba(255,255,255,.45)" stroke="#B59A6A" stroke-width="${9*Math.max(1,H/1000)}" stroke-dasharray="${18*Math.max(1,H/1000)} ${7*Math.max(1,H/1000)}" stroke-linejoin="round"/>
+      <rect width="${W}" height="${H}" fill="#F4EFE3"/>${isSuwon?hill:""}${parks}
+      ${isSuwon?`<path d="${path(STREAM)}" fill="none" stroke="#9CC7E4" stroke-width="${14*1}" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="${path(WALL)} Z" fill="rgba(255,255,255,.45)" stroke="#B59A6A" stroke-width="${9*1}" stroke-dasharray="${18*1} ${7*1}" stroke-linejoin="round"/>`:""}
       ${labels}${order}</svg>`;
   const x=pins[mapSel];
   const card = x ? `<article class="card mcard">
       ${x.it.photos&&x.it.photos.length?carousel(x.it.photos):""}
       <div class="bd"><div class="top"><span class="pin" style="background:${SEC_COLORS[x.si%5]}">${x.no}</span><b>${esc(x.it.name)}</b></div>
         <span class="ko">${esc(x.sec.title)}・${esc(x.it.ko)}</span>
-        ${x.it.note?`<p>${esc(x.it.note)}</p>`:`<p style="color:var(--muted)">写真やくわしい情報は、Googleマップで見られます</p>`}
+        ${x.it.note?`<p>${esc(x.it.note)}</p>`:`<p style="color:var(--muted)">写真やくわしい情報は、${x.it.naver?"NAVER地図":"Googleマップ"}で見られます</p>`}
         <div class="ob"><button type="button" data-n="${esc(x.it.name)}" aria-pressed="${!!favs["item|"+x.it.name]}">${favs["item|"+x.it.name]?"♥":"♡"} 気になる</button>
           ${(x.it.map||x.it.naver)?`<a href="${placeUrl(x.it)}" target="_blank" rel="noopener">${x.it.naver?"NAVER地図":"地図アプリ"}</a>`:""}
           ${pins.length>1?`<span class="step"><button type="button" class="mprev" aria-label="前の場所">‹</button><button type="button" class="mnext" aria-label="次の場所">›</button></span>`:""}</div>
@@ -748,7 +861,7 @@ function showPageMap(P){
 
 /* ---------- sheet ---------- */
 function openSheet(s, key, onFav, isPick){
-  const hotel = s.hotel, title = hotel ? "宿へ" : (s.title||s.name), mq = hotel ? DATA.hotel.map : s.map;
+  const hotel = s.hotel, title = hotel ? "宿へ" : (s.title||s.name), mq = hotel ? DATA.hotel.map : s.map, murl = hotel ? gmap(DATA.hotel.map) : ((s.map||s.naver) ? placeUrl(s) : "");
   $("#sheet").innerHTML = `<div class="grab"></div>
     ${s.photo ? `<div class="ph"><img src="${esc(s.photo)}" alt=""></div>${s.credit?`<p class="cr">${esc(s.credit)}</p>`:""}` : ""}
     ${s.optional?`<span class="opt">お好みで</span>`:""}
@@ -761,7 +874,7 @@ function openSheet(s, key, onFav, isPick){
     <div class="acts">
       ${(hotel||s.options)?"":`<button type="button" class="btn like" id="like" aria-pressed="${!!favs[key]}">${favs[key]?"♥ 気になる":"♡ 気になる"}</button>`}
       ${isPick?`<button type="button" class="btn add" id="toList">リストに追加</button>`:""}
-      ${mq?`<a class="btn" href="${gmap(mq)}" target="_blank" rel="noopener">地図で見る</a>`:""}
+      ${murl?`<a class="btn" href="${murl}" target="_blank" rel="noopener">${(!hotel&&s.naver)?"NAVER地図":"地図で見る"}</a>`:""}
       <button type="button" class="btn sub" id="shClose">閉じる</button>
     </div>`;
   $("#scrim").classList.add("open"); $("#sheet").classList.add("open");
@@ -842,13 +955,14 @@ function renderPicks(){
       <span class="im">${p.photo?`<img src="${esc(p.photo)}" alt="" loading="lazy">`:esc(p.emoji||"🎁")}</span>
       <span class="tx"><small>${esc(p.cat)}</small><b>${esc(p.name)}</b></span>
       ${favs["pick|"+p.name]?'<i class="fav">♥</i>':""}
-    </button>`).join("") + (DATA.picks.some(p=>p.sample)?`<p class="pk-sample" style="grid-column:1/-1">※ いまは見本です。もうすぐ中身が届きます。</p>`:"");
+    </button>`).join("") + ((pkCat==="すべて"||pkCat.startsWith("お酒"))?`<div class="card pk-tip"><b>🍶 お酒を日本に持って帰るとき</b>日本への持ち込みは、ひとり3本（1本760mlくらい）まで免税です。お酒は液体なので、スーツケースに入れて預けてください。生のマッコリは発酵してガスが出ることがあるので、しっかり包むか、韓国で飲んでしまうのがおすすめです。</div>`:"")
+    + (DATA.picks.some(p=>p.sample)?`<p class="pk-sample" style="grid-column:1/-1">※ いまは見本です。もうすぐ中身が届きます。</p>`:"");
 }
 $("#pkChips").addEventListener("click", e=>{ const b=e.target.closest("button"); if(b){ pkCat=b.dataset.c; renderPicks(); }});
 $("#pkGrid").addEventListener("click", e=>{ const b=e.target.closest("button[data-i]"); if(!b) return; const p=DATA.picks[+b.dataset.i]; openSheet(p, "pick|"+p.name, renderPicks, true); });
 
 /* ---------- 自動アップデート確認 ---------- */
-const BUILD_ID = "20260923063432";
+const BUILD_ID = "20261001124901";
 async function checkUpdate(){
   if (BUILD_ID === "dev") return;
   try {
