@@ -589,7 +589,10 @@ const DATA = {
             labels:[[37.55126,126.98829,"南山タワー"],[37.53505,126.98533,"緑莎坪駅"]], parks:[[37.5520,126.9890,.0040,.0050]],
             gallery:[ PHOTOS.hb3, PHOTOS.hb4, PHOTOS.nt2, PHOTOS.hb1 ],
             sections:[
-              { title:"A：解放村で夜景と一杯", items:[] },
+              { title:"A：解放村で夜景と一杯", items:[
+                { name:"エイル", ko:"애일", note:"解放村の坂の上にある洋食のお店。", naver:"애일 해방촌", ll:[37.54354,126.98734] },
+                { name:"セモリナクラブ", ko:"세몰리나클럽", note:"お酒と料理をゆっくり楽しめるお店。エイルのすぐとなりです。", naver:"세몰리나클럽", ll:[37.54371,126.98726] },
+              ]},
               { title:"A：解放村を歩く", items:[
                 { name:"新興市場（シヌンシジャン）", ko:"신흥시장", photos:[PHOTOS.hb3, PHOTOS.hb1], note:"古い市場をリノベーションした場所。屋根の下に、カフェや小さなお店が並んでいます。", map:"해방촌 신흥시장", ll:[37.54514,126.98497] },
                 { name:"南山タワーが見える坂道", ko:"해방촌 오거리", photos:[PHOTOS.hb4, PHOTOS.nt2], note:"坂の上から見上げる南山タワーは、解放村ならではの景色。暗くなるとタワーに明かりがともります。坂が急なので、上まではタクシーで行きます。", map:"해방촌 오거리", ll:[37.54353,126.98559] },
@@ -962,7 +965,7 @@ $("#pkChips").addEventListener("click", e=>{ const b=e.target.closest("button");
 $("#pkGrid").addEventListener("click", e=>{ const b=e.target.closest("button[data-i]"); if(!b) return; const p=DATA.picks[+b.dataset.i]; openSheet(p, "pick|"+p.name, renderPicks, true); });
 
 /* ---------- 自動アップデート確認 ---------- */
-const BUILD_ID = "20261001124901";
+const BUILD_ID = "20261002010122";
 async function checkUpdate(){
   if (BUILD_ID === "dev") return;
   try {
